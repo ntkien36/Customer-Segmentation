@@ -11,6 +11,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import json
 from Kmeans import Cus_KMeans
+#from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
 model = pickle.load(open('kmeans_model_n.pkl', 'rb'))
@@ -118,9 +119,11 @@ def predict():
     #return render_template('index.html', prediction='This user will click on social network ad  {}'.format(output))
 
 #  for local
-if __name__ == "__main__":
-    app.run(debug=True)
+#if __name__ == "__main__":
+    #app.run(debug=True)
+    #http_server = WSGIServer(("127.0.0.1", 5000), app)
+    #http_server.serve_forever()
 
 #  for cloud
-# if __name__ == "__main__":
-#     app.run(host = '0.0.0.0',port=8080)
+if __name__ == "__main__":
+    app.run(host = '127.0.0.1',port=5000)
